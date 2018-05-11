@@ -46,32 +46,35 @@ for i in G.nodes:
 	
 bidirectional_edges = 0.5 * len([ 1 for (u,v) in G.edges() if u in G[v] ])
 
-# Getting the diameter of the graph
+
 UDG = nx.Graph()
 UDG = G.to_undirected()
 print (nx.info(UDG))
 connected_components = nx.connected_component_subgraphs(UDG)
 
-component_node_count = 0
-largest_components = [0]
-diameter = 0
+# component_node_count = 0
+# largest_components = [0]
+# diameter = 0
+
+# Getting the index of largest connected component
 # for component in connected_components:
 # 	if len(component.nodes()) >= component_node_count:
 # 		component_node_count = len(component.nodes())
 # 		largest_components.append(component_node_count)
 
-Gtmp = nx.Graph()
-weakly_connected_components = nx.weakly_connected_component_subgraphs(G)
-for component in weakly_connected_components:
-	print ("len: ", len(component.edges()))
-	Gtmp = component.to_undirected()
-	print ("diameter", nx.diameter(Gtmp))
-
+# Gtmp = nx.Graph()
+# weakly_connected_components = nx.weakly_connected_component_subgraphs(G)
+# for component in weakly_connected_components:
+# 	print ("len: ", len(component.edges()))
+# 	Gtmp = component.to_undirected()
+# 	print ("diameter", nx.diameter(Gtmp))
 
 # for component in connected_components:
 # 	print ("len: ", len(component.edges()))
 # 	print ("diameter", nx.diameter(component))
 
+
+# Getting the diameter of the graph ============== Uncomment for testing the values - takes lot of time!
 
 # for x in range(len(largest_components)):
 # 	print ("largest_components: ", largest_components[x])
@@ -79,10 +82,7 @@ for component in weakly_connected_components:
 # for component in connected_components:
 # 	if len(component.nodes()) == 78524:
 # 		diameter = nx.diameter(component)
-# 	elif len(component.nodes()) > 20:
-# 		diameter = 100
-# 	else:
-# 		diameter = 2
+
 	# for i in range(len(largest_components)):
 	# 	if len(component.nodes()) == largest_components[i]:
 	# 		tmp = nx.diameter(component)
@@ -90,32 +90,27 @@ for component in weakly_connected_components:
 	# 	if tmp > diameter:
 	# 		diameter = tmp
 
-# [print(len(component.nodes())) for component in connected_components]
 # diameter = [max(nx.diameter(component)) for component in connected_components]
-# diameter = nx.diameter(connected_components)
+
+
 # connected_components = nx.strongly_connected_component_subgraphs(G)
 # for component in connected_components:
 # 	print (nx.diameter(component))
-# 	print (nx.info(component))
-# for component in connected_components:
-# 	print (component.nodes())
-
-# diameter = [max(nx.diameter(component)) for component in connected_components]
 
 print("\n************************ Task1-1 ************************\n")
 print("00. Number of self-loops === ", G.number_of_selfloops())
 print("01. Number of nodes in G === ", G.number_of_nodes())
 print("02. Number of edges in G === ", G.number_of_edges())
 print("03. Number of bidirectional edges === ", bidirectional_edges)
-print("04. Minimum number of incoming correspondings === ", min_in)
-print("05. Minimum number of outgoing correspondings  === ", min_out)
-print("06. Minimum number of total correspondings  === ", min_total)
-print("07. Maximum number of incoming correspondings  === ", max_in)
-print("08. Maximum number of outgoing correspondings  === ", max_out)
-print("09. Maximum number of total correspondings  === ", max_total)
-print("10. Average number of incoming correspondings  === ", Average_in)
-print("11. Average number of outgoing correspondings  === ", Average_out)
-print("12. Average number of total correspondings  === ", Average_total)
+print("04. Minimum number of incoming correspondences === ", min_in)
+print("05. Minimum number of outgoing correspondences  === ", min_out)
+print("06. Minimum number of total correspondences  === ", min_total)
+print("07. Maximum number of incoming correspondences  === ", max_in)
+print("08. Maximum number of outgoing correspondences  === ", max_out)
+print("09. Maximum number of total correspondences  === ", max_total)
+print("10. Average number of incoming correspondences  === ", Average_in)
+print("11. Average number of outgoing correspondences  === ", Average_out)
+print("12. Average number of total correspondences  === ", Average_total)
 print("13. Diameter of the network === ", diameter)
 
 # Task 1-2 ===============================================================
